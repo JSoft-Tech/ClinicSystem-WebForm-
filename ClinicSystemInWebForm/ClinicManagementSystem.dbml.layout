@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ClinicManagementSystem">
+  <DataContextMoniker Name="/ClinicManagementSystemDataContext" />
+  <nestedChildShapes>
+    <classShape Id="05bc87bb-a683-4173-a726-b55b603badac" absoluteBounds="6.75, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ClinicManagementSystemDataContext/TBLAPPOINTMENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adb60668-7154-496e-b0f1-2531fb868600" absoluteBounds="6.765, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="721e4976-e76b-4252-8be4-101126c6037f" absoluteBounds="3.5, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ClinicManagementSystemDataContext/TBLDOCTOR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0570f7e-4d0d-45a0-9942-2735f0c3fb87" absoluteBounds="3.515, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.35419590494792); (6.75 : 1.35419590494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ClinicManagementSystemDataContext/TBLDOCTOR/TBLDOCTOR_TBLAPPOINTMENT" />
+      <nodes>
+        <classShapeMoniker Id="721e4976-e76b-4252-8be4-101126c6037f" />
+        <classShapeMoniker Id="05bc87bb-a683-4173-a726-b55b603badac" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e37a9465-b725-431e-b86d-b7a12fa60059" absoluteBounds="7.625, 3.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ClinicManagementSystemDataContext/TBLFEEDBACK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b88b715-9d03-4ccf-a56f-980703569bbe" absoluteBounds="7.64, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.1875 : 2.27089680989583); (8.1875 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ClinicManagementSystemDataContext/TBLAPPOINTMENT/TBLAPPOINTMENT_TBLFEEDBACK" />
+      <nodes>
+        <classShapeMoniker Id="05bc87bb-a683-4173-a726-b55b603badac" />
+        <classShapeMoniker Id="e37a9465-b725-431e-b86d-b7a12fa60059" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="272029b8-1e6a-403a-b7bb-6d960fa1d89e" absoluteBounds="3, 3.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ClinicManagementSystemDataContext/TBLROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f1951f7-3999-458d-86da-f7ddd4df2fdd" absoluteBounds="3.015, 3.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb813f20-78bd-4495-b442-e2c47ce8efa0" absoluteBounds="0.5, 3.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ClinicManagementSystemDataContext/TBLUSERROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd265ee2-798f-440e-a223-736e6e074534" absoluteBounds="0.51499999999999968, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 4.06814697265625); (2.5 : 4.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClinicManagementSystemDataContext/TBLROLE/TBLROLE_TBLUSERROLE" />
+      <nodes>
+        <classShapeMoniker Id="272029b8-1e6a-403a-b7bb-6d960fa1d89e" />
+        <classShapeMoniker Id="bb813f20-78bd-4495-b442-e2c47ce8efa0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fbd932ad-81fb-49a2-a250-0b4e58371a9b" absoluteBounds="5.5, 3.25, 2, 2.5401025390625">
+      <DataClassMoniker Name="/ClinicManagementSystemDataContext/TBLPATIENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afa894a2-3869-4478-b39a-a30f4e26c701" absoluteBounds="5.515, 3.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.125 : 3.25); (7.125 : 2.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClinicManagementSystemDataContext/TBLPATIENT/TBLPATIENT_TBLAPPOINTMENT" />
+      <nodes>
+        <classShapeMoniker Id="fbd932ad-81fb-49a2-a250-0b4e58371a9b" />
+        <classShapeMoniker Id="05bc87bb-a683-4173-a726-b55b603badac" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a29eca11-30de-4a31-95ac-fbab34468acc" absoluteBounds="0.5, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ClinicManagementSystemDataContext/TBLUSER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e59f0a9e-eb6e-4d40-a89d-90118534b3a8" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 2.4631982421875); (1.5 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClinicManagementSystemDataContext/TBLUSER/TBLUSER_TBLUSERROLE" />
+      <nodes>
+        <classShapeMoniker Id="a29eca11-30de-4a31-95ac-fbab34468acc" />
+        <classShapeMoniker Id="bb813f20-78bd-4495-b442-e2c47ce8efa0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CMS" Class="ClinicManagementSystemDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=CMS;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBLAPPOINTMENT" Member="TBLAPPOINTMENTs">
+    <Type Name="TBLAPPOINTMENT">
+      <Column Name="appoinment_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="appointment_DoctorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="appointment_PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="appointment_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="appointment_Status" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="TBLAPPOINTMENT_TBLFEEDBACK" Member="TBLFEEDBACKs" ThisKey="appoinment_ID" OtherKey="feedAppoinment_ID" Type="TBLFEEDBACK" />
+      <Association Name="TBLDOCTOR_TBLAPPOINTMENT" Member="TBLDOCTOR" ThisKey="appointment_DoctorID" OtherKey="doctor_ID" Type="TBLDOCTOR" IsForeignKey="true" />
+      <Association Name="TBLPATIENT_TBLAPPOINTMENT" Member="TBLPATIENT" ThisKey="appointment_PatientID" OtherKey="patient_ID" Type="TBLPATIENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLDOCTOR" Member="TBLDOCTORs">
+    <Type Name="TBLDOCTOR">
+      <Column Name="doctor_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doctor_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="doctor_Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="doctor_Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="doctor_Fee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="doctor_Salary" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="doctor_Specialization" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="is_Active" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="TBLDOCTOR_TBLAPPOINTMENT" Member="TBLAPPOINTMENTs" ThisKey="doctor_ID" OtherKey="appointment_DoctorID" Type="TBLAPPOINTMENT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLFEEDBACK" Member="TBLFEEDBACKs">
+    <Type Name="TBLFEEDBACK">
+      <Column Name="feedback_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="feedAppoinment_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="feedback_Remarks" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="feedback_Dignosis" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="feedback_DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="feedback_Presciption" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="TBLAPPOINTMENT_TBLFEEDBACK" Member="TBLAPPOINTMENT" ThisKey="feedAppoinment_ID" OtherKey="appoinment_ID" Type="TBLAPPOINTMENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLROLES" Member="TBLROLEs">
+    <Type Name="TBLROLE">
+      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="roleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TBLROLE_TBLUSERROLE" Member="TBLUSERROLEs" ThisKey="roleID" OtherKey="roleID" Type="TBLUSERROLE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLUSERROLE" Member="TBLUSERROLEs">
+    <Type Name="TBLUSERROLE">
+      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userRoleDesc" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="TBLROLE_TBLUSERROLE" Member="TBLROLE" ThisKey="roleID" OtherKey="roleID" Type="TBLROLE" IsForeignKey="true" />
+      <Association Name="TBLUSER_TBLUSERROLE" Member="TBLUSER" ThisKey="userID" OtherKey="userID" Type="TBLUSER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLPATIENT" Member="TBLPATIENTs">
+    <Type Name="TBLPATIENT">
+      <Column Name="patient_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="patient_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_BirthDate" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_Height" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_Weight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="patient_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_Address" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_Gender" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="TBLPATIENT_TBLAPPOINTMENT" Member="TBLAPPOINTMENTs" ThisKey="patient_ID" OtherKey="appointment_PatientID" Type="TBLAPPOINTMENT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLUSERS" Member="TBLUSERs">
+    <Type Name="TBLUSER">
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="userEmail" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="userPhone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="userpassword" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="is_Active" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="TBLUSER_TBLUSERROLE" Member="TBLUSERROLEs" ThisKey="userID" OtherKey="userID" Type="TBLUSERROLE" />
+    </Type>
+  </Table>
+</Database>

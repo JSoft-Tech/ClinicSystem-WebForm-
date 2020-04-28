@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ClinicSystemInWebForm.Default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="~/LoginStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+
+      <nav class="navbar sticky-top  navbar-expand-lg navbar-light bg-light border-bottom">
+    
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <asp:HyperLink ID="home_link" NavigateUrl="#" CssClass="nav-link" runat="server"><i class="fa fa-home" aria-hidden="true"></i> Home </asp:HyperLink>
+             </li>
+
+            <li class="nav-item">
+              <asp:HyperLink ID="signup_link" NavigateUrl="~/Accounts/RegisterationForm.aspx" CssClass="nav-link" runat="server">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i> </asp:HyperLink>
+            </li>
+
+              <li class="nav-item">
+              <asp:HyperLink ID="signin_link" NavigateUrl="~/Accounts/LoginPage.aspx" CssClass="nav-link" runat="server"> Sign In <i class="fa fa-sign-in" aria-hidden="true"></i></asp:HyperLink>
+            </li>
+
+ 
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid mt-2">
+
+            <asp:ContentPlaceHolder ID="DefaultContent" runat="server">
+
+            </asp:ContentPlaceHolder>
+    
+
+      </div>
+
+   
+
+
+        </div>
+    </form>
+</body>
+</html>
